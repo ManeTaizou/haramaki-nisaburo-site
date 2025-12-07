@@ -8,28 +8,28 @@ import Footer from "@/components/Footer";
 
 export default function ShigotoSagashiPage() {
   const comicPages = [
-    { src: "/IMG_2726 2.png", alt: "仕事探しの巻 - 1コマ目" },
-    { src: "/IMG_2762 2.png", alt: "仕事探しの巻 - 2コマ目" },
-    { src: "/IMG_2706 2.png", alt: "仕事探しの巻 - 3コマ目" },
-    { src: "/IMG_2764 2.png", alt: "仕事探しの巻 - 4コマ目" },
-    { src: "/IMG_2722 2.png", alt: "仕事探しの巻 - 5コマ目" },
-    { src: "/IMG_2705 2.png", alt: "仕事探しの巻 - 6コマ目" },
-    { src: "/IMG_2736 2.png", alt: "仕事探しの巻 - 7コマ目" },
-    { src: "/IMG_2768 2.png", alt: "仕事探しの巻 - 8コマ目" },
-    { src: "/IMG_2711 2.png", alt: "仕事探しの巻 - 9コマ目" },
-    { src: "/IMG_2730 2.png", alt: "仕事探しの巻 - 10コマ目" },
+    { src: "/IMG_2726 2.PNG", alt: "仕事探しの巻 - 1コマ目" },
+    { src: "/IMG_2762 2.PNG", alt: "仕事探しの巻 - 2コマ目" },
+    { src: "/IMG_2706 2.PNG", alt: "仕事探しの巻 - 3コマ目" },
+    { src: "/IMG_2764 2.PNG", alt: "仕事探しの巻 - 4コマ目" },
+    { src: "/IMG_2722 2.PNG", alt: "仕事探しの巻 - 5コマ目" },
+    { src: "/IMG_2705 2.PNG", alt: "仕事探しの巻 - 6コマ目" },
+    { src: "/IMG_2736 2.PNG", alt: "仕事探しの巻 - 7コマ目" },
+    { src: "/IMG_2768 2.PNG", alt: "仕事探しの巻 - 8コマ目" },
+    { src: "/IMG_2711 2.PNG", alt: "仕事探しの巻 - 9コマ目" },
+    { src: "/IMG_2730 2.PNG", alt: "仕事探しの巻 - 10コマ目" },
   ];
 
   // 作者コメント配列（null の場合はそのコマでアイコン非表示）
   const authorComments: (string | null)[] = [
     "はらまきニャーズとスッパイダーマンやで。",
     "わて、背ぇ、伸びたんちゃうか。",
-    "あんた、相撲は諦めたんか？",
+    "あんた、相撲は諦めはったんか？",
     "はくの？はかないの？どっち？ってか・・・。",
     "腹巻商店での日常。ここでの暮らしは平和そのもの。",
     "時折見せる、とんでもない行動力！これが二三郎流。",
     "大阪出身らしいノリの良さが出てきました。",
-    "はらまきニャーズとスッパイダーマンやで。",
+    "ゆうとくけど、スッパイダーマンやで。",
     "クロッキーってなんやねん？",
     "仕事探しの結末は…？続きをお楽しみに！",
   ];
@@ -152,7 +152,7 @@ export default function ShigotoSagashiPage() {
           className="fixed bottom-6 right-6 w-14 h-14 md:w-16 md:h-16 rounded-full shadow-lg hover:scale-110 transition-transform duration-200 overflow-hidden ring-4 ring-white z-40"
         >
           <Image
-            src="/icons/author.JPG"
+            src="/icons/author.png"
             alt="作者アイコン"
             width={64}
             height={64}
