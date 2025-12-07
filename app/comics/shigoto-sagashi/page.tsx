@@ -12,10 +12,10 @@ export default function ShigotoSagashiPage() {
     { src: "/IMG_2762 2.PNG", alt: "仕事探しの巻 - 2コマ目" },
     { src: "/IMG_2706 2.PNG", alt: "仕事探しの巻 - 3コマ目" },
     { src: "/IMG_2764 2.PNG", alt: "仕事探しの巻 - 4コマ目" },
-    { src: "/IMG_2722 2.PNG", alt: "仕事探しの巻 - 5コマ目" },
+    { src: "/IMG_2722 2 2.PNG", alt: "仕事探しの巻 - 5コマ目" },
     { src: "/IMG_2705 2.PNG", alt: "仕事探しの巻 - 6コマ目" },
     { src: "/IMG_2736 2.PNG", alt: "仕事探しの巻 - 7コマ目" },
-    { src: "/IMG_2768 2.PNG", alt: "仕事探しの巻 - 8コマ目" },
+    { src: "/IMG_2768 2.png", alt: "仕事探しの巻 - 8コマ目" },
     { src: "/IMG_2711 2.PNG", alt: "仕事探しの巻 - 9コマ目" },
     { src: "/IMG_2730 2.PNG", alt: "仕事探しの巻 - 10コマ目" },
   ];
