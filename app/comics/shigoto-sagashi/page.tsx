@@ -23,24 +23,30 @@ export default function ShigotoSagashiPage() {
   // 作者コメント配列（null の場合はそのコマでアイコン非表示）
   const authorComments: (string | null)[] = [
     "はらまきニャーズとスッパイダーマンやで。",
-    "わて、背ぇ、伸びたんちゃうか。",
+    "わて、背ぇ伸びたんやろか。",
     "あんた、相撲やっとったんか？",
-    "はくの？はかないの？どっち？ってか・・・。",
-    "腹巻商店での日常。ここでの暮らしは平和そのもの。",
-    "時折見せる、とんでもない行動力！これが二三郎流。",
+    "はくの？はかないの？って聞かれても困る。",
+    "昼寝中に起こさんとってや。",
+    "プロバイダってなんのことでござる？",
     "大阪出身らしいノリの良さが出てきました。",
-    "ゆうとくけど、スッパイダーマンやで。",
-    "クロッキーってなんやねん？",
-    "仕事探しの結末は…？続きをお楽しみに！",
+    "うめぼし星人スッパイダーマンでもええんやろか。",
+    "クロッキーの意味、教えて〜な。",
+    "床屋、苦手やねん...。",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAuthorCommentOpen, setIsAuthorCommentOpen] = useState(false);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const touchStartY = useRef(0);
+  const isHorizontalSwipe = useRef<boolean | null>(null);
 
-  const toggleAuthorComment = () => {
-    setIsAuthorCommentOpen((prev) => !prev);
+  const showAuthorComment = () => {
+    setIsAuthorCommentOpen(true);
+  };
+
+  const hideAuthorComment = () => {
+    setIsAuthorCommentOpen(false);
   };
 
   const goToPrevious = () => {
@@ -55,34 +61,59 @@ export default function ShigotoSagashiPage() {
     setCurrentIndex(index);
   };
 
-  // スワイプ機能（スマホのみ）
+  // スワイプ機能（方向判定付き）
   useEffect(() => {
     const handleTouchStart = (e: TouchEvent) => {
       touchStartX.current = e.touches[0].clientX;
+      touchStartY.current = e.touches[0].clientY;
+      isHorizontalSwipe.current = null; // リセット
     };
 
     const handleTouchMove = (e: TouchEvent) => {
       touchEndX.current = e.touches[0].clientX;
+      const touchCurrentY = e.touches[0].clientY;
+
+      // 方向がまだ判定されていない場合
+      if (isHorizontalSwipe.current === null) {
+        const deltaX = Math.abs(touchEndX.current - touchStartX.current);
+        const deltaY = Math.abs(touchCurrentY - touchStartY.current);
+
+        // 一定以上の動きがあれば方向を判定（10px以上）
+        if (deltaX > 10 || deltaY > 10) {
+          isHorizontalSwipe.current = deltaX > deltaY;
+        }
+      }
+
+      // 横スワイプの場合は縦スクロールを防止
+      if (isHorizontalSwipe.current === true) {
+        e.preventDefault();
+      }
     };
 
     const handleTouchEnd = () => {
-      const diff = touchStartX.current - touchEndX.current;
+      // 横スワイプの場合のみコマ送り
+      if (isHorizontalSwipe.current === true) {
+        const diff = touchStartX.current - touchEndX.current;
 
-      // 右→左へ50px以上スワイプで次へ
-      if (diff > 50) {
-        goToNext();
+        // 右→左へ50px以上スワイプで次へ
+        if (diff > 50) {
+          goToNext();
+        }
+        // 左→右へ50px以上スワイプで前へ
+        else if (diff < -50) {
+          goToPrevious();
+        }
       }
-      // 左→右へ50px以上スワイプで前へ
-      else if (diff < -50) {
-        goToPrevious();
-      }
+
+      // リセット
+      isHorizontalSwipe.current = null;
     };
 
     const imageContainer = document.getElementById('comic-container');
     if (imageContainer) {
-      imageContainer.addEventListener('touchstart', handleTouchStart);
-      imageContainer.addEventListener('touchmove', handleTouchMove);
-      imageContainer.addEventListener('touchend', handleTouchEnd);
+      imageContainer.addEventListener('touchstart', handleTouchStart, { passive: true });
+      imageContainer.addEventListener('touchmove', handleTouchMove, { passive: false });
+      imageContainer.addEventListener('touchend', handleTouchEnd, { passive: true });
     }
 
     return () => {
@@ -112,13 +143,13 @@ export default function ShigotoSagashiPage() {
     <div className="relative min-h-screen bg-[#F7CD63] flex flex-col">
       <main className="flex-1">
         {/* カルーセルセクション */}
-        <section className="flex items-center justify-center py-4 md:py-8">
-          <div className="w-full px-4 md:px-4 flex justify-center">
-            {/* 画像表示エリア（スマホ：白カードなし、PC：白カードあり） */}
-            <div className="relative bg-transparent md:bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg px-0 md:px-8 py-0 md:py-8 w-full max-w-full md:max-w-4xl">
+        <section className="flex items-center justify-center py-4 xl:py-8">
+          <div className="w-full px-0 xl:px-4 flex justify-center">
+            {/* 画像表示エリア（スマホ/iPad：白カードなし全幅、PC：白カードあり） */}
+            <div className="relative bg-transparent xl:bg-white rounded-none xl:rounded-2xl shadow-none xl:shadow-lg px-0 xl:px-8 py-0 xl:py-8 w-full max-w-full xl:max-w-4xl">
               <div
                 id="comic-container"
-                className="relative w-full aspect-[1080/1350] md:aspect-auto md:h-[600px] mx-auto overflow-hidden"
+                className="relative w-full aspect-[1080/1350] xl:aspect-auto xl:h-[600px] mx-auto overflow-hidden"
               >
                 <motion.div
                   className="flex h-full"
@@ -149,57 +180,26 @@ export default function ShigotoSagashiPage() {
                 onClick={goToPrevious}
                 disabled={currentIndex === 0}
                 aria-label="前のコマ"
-                className="hidden md:flex absolute left-8 md:left-12 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 items-center justify-center rounded-full bg-[#4A3424] text-[#FFF6D9] hover:scale-110 transition-all duration-200 disabled:opacity-30 disabled:hover:scale-100 disabled:cursor-not-allowed shadow-md"
+                className="hidden xl:flex absolute left-12 top-1/2 -translate-y-1/2 w-12 h-12 items-center justify-center rounded-full bg-[#4A3424] text-[#FFF6D9] hover:scale-110 transition-all duration-200 disabled:opacity-30 disabled:hover:scale-100 disabled:cursor-not-allowed shadow-md"
               >
-                <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
+                <ChevronLeft className="w-8 h-8" />
               </button>
 
               <button
                 onClick={goToNext}
                 disabled={currentIndex === comicPages.length - 1}
                 aria-label="次のコマ"
-                className="hidden md:flex absolute right-8 md:right-12 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 items-center justify-center rounded-full bg-[#4A3424] text-[#FFF6D9] hover:scale-110 transition-all duration-200 disabled:opacity-30 disabled:hover:scale-100 disabled:cursor-not-allowed shadow-md"
+                className="hidden xl:flex absolute right-12 top-1/2 -translate-y-1/2 w-12 h-12 items-center justify-center rounded-full bg-[#4A3424] text-[#FFF6D9] hover:scale-110 transition-all duration-200 disabled:opacity-30 disabled:hover:scale-100 disabled:cursor-not-allowed shadow-md"
               >
-                <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
+                <ChevronRight className="w-8 h-8" />
               </button>
             </div>
           </div>
         </section>
 
-        {/* スマホ版：アイコンと吹き出しを横並び（画像直下） */}
-        {authorComments[currentIndex] && (
-          <div className="block md:hidden w-[90%] mx-auto mb-4">
-            <div className="flex items-start gap-3">
-              {/* アイコンボタン */}
-              <button
-                onClick={toggleAuthorComment}
-                aria-label="作者コメントを表示/非表示"
-                className="flex-shrink-0 w-14 h-14 rounded-full shadow-lg overflow-hidden ring-4 ring-white"
-              >
-                <Image
-                  src="/icons/author.png"
-                  alt="作者アイコン"
-                  width={64}
-                  height={64}
-                  className="object-cover"
-                />
-              </button>
-
-              {/* 吹き出し */}
-              {isAuthorCommentOpen && (
-                <div className="flex-1 bg-white rounded-lg shadow-lg p-4">
-                  <p className="text-sm text-neutral-800 leading-relaxed">
-                    {authorComments[currentIndex]}
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-
         {/* PC版：固定位置の吹き出し */}
         {isAuthorCommentOpen && authorComments[currentIndex] && (
-          <div className="hidden md:block fixed bottom-6 right-48 max-w-sm z-50">
+          <div className="hidden xl:block fixed bottom-6 right-48 max-w-sm z-50">
             <div className="bg-white rounded-lg shadow-lg p-4">
               <p className="text-sm text-neutral-800 leading-relaxed">
                 {authorComments[currentIndex]}
@@ -216,7 +216,7 @@ export default function ShigotoSagashiPage() {
         </div>
 
         {/* ドットインジケーター */}
-        <div className="flex justify-center gap-2 pb-16 md:pb-10">
+        <div className="flex justify-center gap-2 pb-6">
           {comicPages.map((_, index) => (
             <button
               key={index}
@@ -230,14 +230,63 @@ export default function ShigotoSagashiPage() {
             />
           ))}
         </div>
+
+        {/* スマホ/iPad版：アイコンと吹き出し（ドットの下） */}
+        {authorComments[currentIndex] && (
+          <div className="block xl:hidden w-[90%] mx-auto pb-10">
+            <div className="flex items-start gap-3 justify-end">
+              {/* 吹き出し */}
+              {isAuthorCommentOpen && (
+                <div className="flex-1 bg-white rounded-lg shadow-lg p-4">
+                  <p className="text-sm text-neutral-800 leading-relaxed">
+                    {authorComments[currentIndex]}
+                  </p>
+                </div>
+              )}
+
+              {/* アイコンボタン */}
+              <button
+                onMouseDown={showAuthorComment}
+                onMouseUp={hideAuthorComment}
+                onMouseLeave={hideAuthorComment}
+                onDragStart={(e) => { e.preventDefault(); hideAuthorComment(); }}
+                onDrag={hideAuthorComment}
+                onTouchStart={showAuthorComment}
+                onTouchEnd={hideAuthorComment}
+                onTouchCancel={hideAuthorComment}
+                onTouchMove={hideAuthorComment}
+                aria-label="作者コメントを表示/非表示"
+                className="flex-shrink-0 w-14 h-14 rounded-full shadow-lg overflow-hidden ring-4 ring-white"
+                draggable={false}
+              >
+                <Image
+                  src="/icons/author.png"
+                  alt="作者アイコン"
+                  width={64}
+                  height={64}
+                  className="object-cover"
+                />
+              </button>
+            </div>
+          </div>
+        )}
       </main>
 
       {/* 作者アイコンボタン（PC版のみ：黄色背景の右下に固定） */}
       {authorComments[currentIndex] && (
         <button
-          onClick={toggleAuthorComment}
+          onMouseDown={showAuthorComment}
+          onMouseUp={hideAuthorComment}
+          onMouseLeave={hideAuthorComment}
+          onDragStart={(e) => { e.preventDefault(); hideAuthorComment(); }}
+          onDrag={hideAuthorComment}
+          onTouchStart={showAuthorComment}
+          onTouchEnd={hideAuthorComment}
+          onTouchCancel={hideAuthorComment}
+          onTouchMove={hideAuthorComment}
           aria-label="作者コメントを表示/非表示"
-          className="hidden md:block fixed bottom-6 right-6 md:right-28 w-16 h-16 rounded-full shadow-lg hover:scale-110 transition-transform duration-200 overflow-hidden ring-4 ring-white z-40"
+          className="hidden xl:block fixed bottom-6 right-28 w-16 h-16 rounded-full shadow-lg hover:scale-110 transition-transform duration-200 overflow-hidden ring-4 ring-white z-40"
+          draggable={false}
         >
           <Image
             src="/icons/author.png"
