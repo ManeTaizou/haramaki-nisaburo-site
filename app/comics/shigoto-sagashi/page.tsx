@@ -255,8 +255,10 @@ export default function ShigotoSagashiPage() {
                 onTouchEnd={hideAuthorComment}
                 onTouchCancel={hideAuthorComment}
                 onTouchMove={hideAuthorComment}
+                onContextMenu={(e) => e.preventDefault()}
                 aria-label="作者コメントを表示/非表示"
-                className="flex-shrink-0 w-14 h-14 rounded-full shadow-lg overflow-hidden ring-4 ring-white"
+                className="flex-shrink-0 w-14 h-14 rounded-full shadow-lg overflow-hidden ring-4 ring-white select-none"
+                style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
                 draggable={false}
               >
                 <Image
@@ -264,7 +266,8 @@ export default function ShigotoSagashiPage() {
                   alt="作者アイコン"
                   width={64}
                   height={64}
-                  className="object-cover"
+                  className="object-cover pointer-events-none select-none"
+                  style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
                 />
               </button>
             </div>
@@ -284,8 +287,10 @@ export default function ShigotoSagashiPage() {
           onTouchEnd={hideAuthorComment}
           onTouchCancel={hideAuthorComment}
           onTouchMove={hideAuthorComment}
+          onContextMenu={(e) => e.preventDefault()}
           aria-label="作者コメントを表示/非表示"
-          className="hidden xl:block fixed bottom-6 right-28 w-16 h-16 rounded-full shadow-lg hover:scale-110 transition-transform duration-200 overflow-hidden ring-4 ring-white z-40"
+          className="hidden xl:block fixed bottom-6 right-28 w-16 h-16 rounded-full shadow-lg hover:scale-110 transition-transform duration-200 overflow-hidden ring-4 ring-white z-40 select-none"
+          style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
           draggable={false}
         >
           <Image
@@ -293,7 +298,8 @@ export default function ShigotoSagashiPage() {
             alt="作者アイコン"
             width={64}
             height={64}
-            className="object-cover"
+            className="object-cover pointer-events-none select-none"
+            style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
           />
         </button>
       )}
