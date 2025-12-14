@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 
 export default function ShigotoSagashiPage() {
   const comicPages = [
-    { src: "/IMG_2726 2.png", alt: "仕事探しの巻 - 1コマ目" },
+    { src: "/IMG_2726 2.PNG", alt: "仕事探しの巻 - 1コマ目" },
     { src: "/IMG_2762 2.PNG", alt: "仕事探しの巻 - 2コマ目" },
     { src: "/IMG_2706 2.PNG", alt: "仕事探しの巻 - 3コマ目" },
     { src: "/IMG_2764 2.PNG", alt: "仕事探しの巻 - 4コマ目" },
