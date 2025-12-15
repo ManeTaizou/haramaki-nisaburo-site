@@ -22,14 +22,14 @@ export default function ShigotoSagashiPage() {
 
   // 作者コメント配列（null の場合はそのコマでアイコン非表示）
   const authorComments: (string | null)[] = [
-    "内緒にしとってや。",
+    "恥ずいから、広めんといてや。",
     "わて、背ぇ伸びたんやろか。",
     "あんた、相撲やっとったんか？",
-    "足、冷たいなぁ。",
+    "そろそろ昼寝でもしよか。",
     "マスクの脇からからチラ見。",
     "プロバイダってなんのことでござる？",
     "面接なしって、どゆこと？",
-    "スッパイダーマンの格好でもええの？",
+    "うめぼし星人スッパイダーマンでもええの？",
     "クロッキーの意味、教えて〜な。",
     "床屋、苦手やねん...。",
   ];
@@ -209,7 +209,7 @@ export default function ShigotoSagashiPage() {
         )}
 
         {/* ドットインジケーター */}
-        <div className="flex justify-center gap-2 pb-20 md:pb-16">
+        <div className="flex justify-center gap-2 pb-4 md:pb-16">
           {comicPages.map((_, index) => (
             <button
               key={index}
@@ -226,7 +226,7 @@ export default function ShigotoSagashiPage() {
 
         {/* スマホ版：アイコンと吹き出し（ドットの下） */}
         {authorComments[currentIndex] && (
-          <div className="block md:hidden w-[90%] mx-auto pb-10">
+          <div className="block md:hidden w-[90%] mx-auto pb-4">
             <div className="flex items-center gap-3 justify-end">
               {/* 吹き出し */}
               <div className={`flex-1 bg-white rounded-lg shadow-lg p-4 min-h-[80px] flex items-center transition-opacity duration-200 ${

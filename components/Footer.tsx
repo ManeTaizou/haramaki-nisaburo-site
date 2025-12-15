@@ -1,9 +1,21 @@
+import Image from "next/image";
 import { FaXTwitter, FaInstagram } from "react-icons/fa6";
 
 export default function Footer() {
   return (
     <footer className="bg-[#F7CD63] text-[#4A3424] py-8 border-t-4 border-black">
       <div className="container mx-auto px-4 text-center">
+        {/* ロゴ */}
+        <div className="mb-4 flex justify-center">
+          <Image
+            src="/logo.png"
+            alt="腹巻二三郎"
+            width={150}
+            height={50}
+            className="object-contain"
+          />
+        </div>
+
         <p className="text-sm text-center">
           © 2025 ManeTaizou
         </p>
