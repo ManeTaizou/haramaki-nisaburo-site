@@ -18,36 +18,15 @@ interface Comment {
   replies?: Comment[];
 }
 
-export default function ShigotoSagashiPage() {
+export default function FourKomaVol1Page() {
   const comicPages = [
-    { src: "/IMG_2726 2.PNG", alt: "仕事探しの巻 - 1コマ目" },
-    { src: "/IMG_2762 2.PNG", alt: "仕事探しの巻 - 2コマ目" },
-    { src: "/IMG_2706 2.PNG", alt: "仕事探しの巻 - 3コマ目" },
-    { src: "/IMG_2764 2.PNG", alt: "仕事探しの巻 - 4コマ目" },
-    { src: "/IMG_2722 2 2.PNG", alt: "仕事探しの巻 - 5コマ目" },
-    { src: "/IMG_2705 2.PNG", alt: "仕事探しの巻 - 6コマ目" },
-    { src: "/IMG_2736 2.PNG", alt: "仕事探しの巻 - 7コマ目" },
-    { src: "/IMG_2768 2.png", alt: "仕事探しの巻 - 8コマ目" },
-    { src: "/IMG_2711 2.PNG", alt: "仕事探しの巻 - 9コマ目" },
-    { src: "/IMG_2730 2.PNG", alt: "仕事探しの巻 - 10コマ目" },
-  ];
-
-  // 作者コメント配列（null の場合はそのコマでアイコン非表示）
-  const authorComments: (string | null)[] = [
-    "恥ずいから、広めんといてや。",
-    "わて、背ぇ伸びたんやろか。",
-    "あんた、相撲やっとったんか？",
-    "そろそろ昼寝でもしよか。",
-    "マスクの脇からチラ見。",
-    "プロバイダってなんのことでござる？",
-    "面接なしって、どゆこと？",
-    "うめぼし星人スッパイダーマンでもええの？",
-    "クロッキーの意味、教えて〜な。",
-    "床屋、苦手やねん...。",
+    { src: "/4koma/vol1/1コマ目完成.png", alt: "4コマ Vol.1 - 1コマ目" },
+    { src: "/4koma/vol1/2コマ目完成.png", alt: "4コマ Vol.1 - 2コマ目" },
+    { src: "/4koma/vol1/3コマ目完成.png", alt: "4コマ Vol.1 - 3コマ目" },
+    { src: "/4koma/vol1/4コマ目完成.png", alt: "4コマ Vol.1 - 4コマ目" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAuthorCommentOpen, setIsAuthorCommentOpen] = useState(false);
   const [pageViews, setPageViews] = useState(0);
   const [likeCount, setLikeCount] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
@@ -61,45 +40,17 @@ export default function ShigotoSagashiPage() {
   const [comments, setComments] = useState<Comment[]>([
     {
       id: "1",
-      author: "漫画ファン太郎",
-      content: "二三郎さんの就活、応援してます！",
-      timestamp: "2024/12/15 14:30",
-      likes: 5,
-      isLiked: false,
-      isPending: false,
-      replies: [
-        {
-          id: "1-1",
-          author: "作者",
-          content: "ありがとうございます！頑張ります〜",
-          timestamp: "2024/12/15 15:00",
-          likes: 3,
-          isLiked: false,
-          isPending: false,
-        }
-      ]
-    },
-    {
-      id: "2",
-      author: "レトロ好き花子",
-      content: "昭和感がたまらないです。クロッキーのくだり、めちゃ笑いました！",
-      timestamp: "2024/12/16 10:20",
-      likes: 12,
+      author: "4コマファン",
+      content: "展開が面白い！続きが気になります！",
+      timestamp: "2024/12/17 10:00",
+      likes: 8,
       isLiked: false,
       isPending: false,
     },
   ]);
   const [newComment, setNewComment] = useState({ author: "", content: "" });
   const [replyingTo, setReplyingTo] = useState<string | null>(null);
-  const [commentCount, setCommentCount] = useState(2);
-
-  const showAuthorComment = () => {
-    setIsAuthorCommentOpen(true);
-  };
-
-  const hideAuthorComment = () => {
-    setIsAuthorCommentOpen(false);
-  };
+  const [commentCount, setCommentCount] = useState(1);
 
   const goToPrevious = () => {
     setCurrentIndex((prev) => Math.max(0, prev - 1));
@@ -120,16 +71,14 @@ export default function ShigotoSagashiPage() {
     const newCount = newLikedState ? likeCount + 1 : likeCount - 1;
     setLikeCount(newCount);
 
-    // localStorageに保存
-    localStorage.setItem("shigoto-sagashi-liked", JSON.stringify(newLikedState));
-    localStorage.setItem("shigoto-sagashi-likes", JSON.stringify(newCount));
+    localStorage.setItem("4koma-vol1-liked", JSON.stringify(newLikedState));
+    localStorage.setItem("4koma-vol1-likes", JSON.stringify(newCount));
   };
 
   // ページビューとイイネの初期化
   useEffect(() => {
-    // ページビューカウント
-    const viewedKey = "shigoto-sagashi-viewed";
-    const viewCountKey = "shigoto-sagashi-views";
+    const viewedKey = "4koma-vol1-viewed";
+    const viewCountKey = "4koma-vol1-views";
 
     const hasViewed = localStorage.getItem(viewedKey);
     const storedViews = localStorage.getItem(viewCountKey);
@@ -144,9 +93,8 @@ export default function ShigotoSagashiPage() {
 
     setPageViews(currentViews);
 
-    // イイネの状態を復元
-    const storedLiked = localStorage.getItem("shigoto-sagashi-liked");
-    const storedLikes = localStorage.getItem("shigoto-sagashi-likes");
+    const storedLiked = localStorage.getItem("4koma-vol1-liked");
+    const storedLikes = localStorage.getItem("4koma-vol1-likes");
 
     if (storedLiked) {
       setIsLiked(JSON.parse(storedLiked));
@@ -156,51 +104,43 @@ export default function ShigotoSagashiPage() {
     }
   }, []);
 
-  // スワイプ機能（方向判定付き）
+  // スワイプ機能
   useEffect(() => {
     const handleTouchStart = (e: TouchEvent) => {
       touchStartX.current = e.touches[0].clientX;
       touchStartY.current = e.touches[0].clientY;
-      isHorizontalSwipe.current = null; // リセット
+      isHorizontalSwipe.current = null;
     };
 
     const handleTouchMove = (e: TouchEvent) => {
       touchEndX.current = e.touches[0].clientX;
       const touchCurrentY = e.touches[0].clientY;
 
-      // 方向がまだ判定されていない場合
       if (isHorizontalSwipe.current === null) {
         const deltaX = Math.abs(touchEndX.current - touchStartX.current);
         const deltaY = Math.abs(touchCurrentY - touchStartY.current);
 
-        // 一定以上の動きがあれば方向を判定（10px以上）
         if (deltaX > 10 || deltaY > 10) {
           isHorizontalSwipe.current = deltaX > deltaY;
         }
       }
 
-      // 横スワイプの場合は縦スクロールを防止
       if (isHorizontalSwipe.current === true) {
         e.preventDefault();
       }
     };
 
     const handleTouchEnd = () => {
-      // 横スワイプの場合のみコマ送り
       if (isHorizontalSwipe.current === true) {
         const diff = touchStartX.current - touchEndX.current;
 
-        // 右→左へ50px以上スワイプで次へ
         if (diff > 50) {
           goToNext();
-        }
-        // 左→右へ50px以上スワイプで前へ
-        else if (diff < -50) {
+        } else if (diff < -50) {
           goToPrevious();
         }
       }
 
-      // リセット
       isHorizontalSwipe.current = null;
     };
 
@@ -220,7 +160,7 @@ export default function ShigotoSagashiPage() {
     };
   }, [currentIndex]);
 
-  // キーボード操作対応（PC）
+  // キーボード操作
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") {
@@ -239,13 +179,12 @@ export default function ShigotoSagashiPage() {
       <HamburgerMenu />
       <main className="flex-1 relative">
         {/* カルーセルセクション */}
-        <section className="flex items-center justify-center py-8 md:py-12">
+        <section className="flex items-center justify-center py-8 md:pt-36 md:pb-12">
           <div className="w-full px-0 md:px-4 flex justify-center">
-            {/* 画像表示エリア（スマホ：白カードなし全幅、iPad/PC：白カードあり） */}
-            <div className="relative bg-transparent md:bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg px-0 md:px-8 py-0 md:py-8 w-full max-w-full md:max-w-4xl">
+            <div className="relative bg-transparent md:bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg px-0 md:px-8 py-0 md:py-8 w-full max-w-full md:max-w-5xl">
               <div
                 id="comic-container"
-                className="relative w-full aspect-[1080/1350] md:aspect-auto md:h-[600px] mx-auto overflow-hidden"
+                className="relative w-full aspect-video md:aspect-auto md:h-[400px] mx-auto overflow-hidden"
               >
                 <motion.div
                   className="flex h-full"
@@ -257,13 +196,12 @@ export default function ShigotoSagashiPage() {
                       key={index}
                       className="relative w-full h-full flex-shrink-0"
                     >
-                      {/* スマホ版: 通常のImage */}
                       <Image
                         src={page.src}
                         alt={page.alt}
                         fill
                         sizes="100vw"
-                        className="object-contain md:object-contain"
+                        className="object-contain"
                         priority={index === 0}
                       />
                     </div>
@@ -271,11 +209,10 @@ export default function ShigotoSagashiPage() {
                 </motion.div>
               </div>
 
-              {/* 矢印ボタン（iPad/PCのみ表示） */}
+              {/* 矢印ボタン */}
               <button
                 onClick={goToPrevious}
                 disabled={currentIndex === 0}
-                aria-label="前のコマ"
                 className="hidden md:flex absolute left-12 top-1/2 -translate-y-1/2 w-12 h-12 items-center justify-center rounded-full bg-[#4A3424] text-[#FFF6D9] hover:scale-110 transition-all duration-200 disabled:opacity-30 disabled:hover:scale-100 disabled:cursor-not-allowed shadow-md"
               >
                 <ChevronLeft className="w-8 h-8" />
@@ -284,7 +221,6 @@ export default function ShigotoSagashiPage() {
               <button
                 onClick={goToNext}
                 disabled={currentIndex === comicPages.length - 1}
-                aria-label="次のコマ"
                 className="hidden md:flex absolute right-12 top-1/2 -translate-y-1/2 w-12 h-12 items-center justify-center rounded-full bg-[#4A3424] text-[#FFF6D9] hover:scale-110 transition-all duration-200 disabled:opacity-30 disabled:hover:scale-100 disabled:cursor-not-allowed shadow-md"
               >
                 <ChevronRight className="w-8 h-8" />
@@ -293,24 +229,12 @@ export default function ShigotoSagashiPage() {
           </div>
         </section>
 
-        {/* iPad/PC版：アイコンの横に固定の吹き出し */}
-        {isAuthorCommentOpen && authorComments[currentIndex] && (
-          <div className="hidden md:block absolute bottom-6 right-48 max-w-sm z-50">
-            <div className="bg-white rounded-lg shadow-lg p-4">
-              <p className="text-sm text-neutral-800 leading-relaxed">
-                {authorComments[currentIndex]}
-              </p>
-            </div>
-          </div>
-        )}
-
-        {/* ドットインジケーター（相対位置指定でカウンターの基準に） */}
-        <div className="relative flex justify-center gap-2 pb-4 md:pb-16">
+        {/* ドットインジケーター */}
+        <div className="relative flex justify-center gap-2 pb-4 md:pb-40">
           {comicPages.map((_, index) => (
             <button
               key={index}
               onClick={() => goToPage(index)}
-              aria-label={`${index + 1}コマ目に移動`}
               className={`w-3 h-3 rounded-full transition-all duration-200 ${
                 index === currentIndex
                   ? "bg-[#4A3424] scale-125"
@@ -319,19 +243,16 @@ export default function ShigotoSagashiPage() {
             />
           ))}
 
-          {/* ページビュー＆LIKEボタン＆コメントボタン（絶対配置でレイアウトに影響なし） */}
+          {/* ページビュー＆LIKE＆コメントボタン */}
           <div className="absolute left-1/2 -translate-x-1/2 top-6 md:top-8 flex items-center gap-6 md:gap-10">
-            {/* ページビュー */}
             <div className="flex items-center gap-2 text-[#4A3424]">
               <Eye className="w-5 h-5" />
               <span className="text-sm font-bold">{pageViews}</span>
             </div>
 
-            {/* LIKEボタン */}
             <button
               onClick={handleLike}
               className="flex items-center gap-2 text-[#4A3424] hover:scale-110 transition-all duration-200"
-              aria-label={isLiked ? "いいねを取り消す" : "いいね"}
             >
               <Heart
                 className={`w-5 h-5 ${isLiked ? "fill-red-500 text-red-500" : ""}`}
@@ -339,96 +260,21 @@ export default function ShigotoSagashiPage() {
               <span className="text-sm font-bold">{likeCount}</span>
             </button>
 
-            {/* コメントボタン */}
             <button
               onClick={() => setIsCommentsOpen(true)}
               className="flex items-center gap-2 text-[#4A3424] hover:scale-110 transition-all duration-200"
-              aria-label="コメントを見る"
             >
               <MessageCircle className="w-5 h-5" />
               <span className="text-sm font-bold">{commentCount}</span>
             </button>
           </div>
         </div>
-
-        {/* スマホ版：アイコンと吹き出し（ドットの下） */}
-        {authorComments[currentIndex] && (
-          <div className="block md:hidden w-[90%] mx-auto pb-4">
-            <div className="flex items-center gap-3 justify-end">
-              {/* 吹き出し */}
-              <div className={`flex-1 bg-white rounded-lg shadow-lg p-4 min-h-[80px] flex items-center transition-opacity duration-200 ${
-                isAuthorCommentOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-              }`}>
-                <p className="text-sm text-neutral-800 leading-relaxed">
-                  {authorComments[currentIndex]}
-                </p>
-              </div>
-
-              {/* アイコンボタン */}
-              <button
-                onMouseDown={showAuthorComment}
-                onMouseUp={hideAuthorComment}
-                onMouseLeave={hideAuthorComment}
-                onDragStart={(e) => { e.preventDefault(); hideAuthorComment(); }}
-                onDrag={hideAuthorComment}
-                onTouchStart={showAuthorComment}
-                onTouchEnd={hideAuthorComment}
-                onTouchCancel={hideAuthorComment}
-                onTouchMove={hideAuthorComment}
-                onContextMenu={(e) => e.preventDefault()}
-                aria-label="作者コメントを表示/非表示"
-                className="flex-shrink-0 w-14 h-14 rounded-full shadow-lg overflow-hidden ring-4 ring-white select-none"
-                style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
-                draggable={false}
-              >
-                <Image
-                  src="/icons/author.png"
-                  alt="作者アイコン"
-                  width={64}
-                  height={64}
-                  className="object-cover pointer-events-none select-none"
-                  style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
-                />
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* 作者アイコンボタン（iPad/PC版のみ：コンテンツエリア右下に配置） */}
-        {authorComments[currentIndex] && (
-          <button
-            onMouseDown={showAuthorComment}
-            onMouseUp={hideAuthorComment}
-            onMouseLeave={hideAuthorComment}
-            onDragStart={(e) => { e.preventDefault(); hideAuthorComment(); }}
-            onDrag={hideAuthorComment}
-            onTouchStart={showAuthorComment}
-            onTouchEnd={hideAuthorComment}
-            onTouchCancel={hideAuthorComment}
-            onTouchMove={hideAuthorComment}
-            onContextMenu={(e) => e.preventDefault()}
-            aria-label="作者コメントを表示/非表示"
-            className="hidden md:block absolute bottom-6 right-28 w-16 h-16 rounded-full shadow-lg hover:scale-110 transition-transform duration-200 overflow-hidden ring-4 ring-white z-40 select-none"
-            style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
-            draggable={false}
-          >
-            <Image
-              src="/icons/author.png"
-              alt="作者アイコン"
-              width={64}
-              height={64}
-              className="object-cover pointer-events-none select-none"
-              style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
-            />
-          </button>
-        )}
       </main>
 
       {/* コメントモーダル */}
       <AnimatePresence>
         {isCommentsOpen && (
           <>
-            {/* 背景オーバーレイ */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -437,19 +283,15 @@ export default function ShigotoSagashiPage() {
               onClick={() => setIsCommentsOpen(false)}
             />
 
-            {/* モーダルコンテンツ */}
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 50 }}
               className="fixed inset-x-0 bottom-0 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-3xl max-h-[85vh] md:max-h-[80vh] bg-white rounded-t-3xl md:rounded-2xl shadow-2xl z-50 flex flex-col"
             >
-              {/* ヘッダー */}
               <div className="relative flex-shrink-0 px-6 pt-4 pb-3 border-b border-gray-200">
-                {/* モバイル用ハンドル */}
                 <div className="md:hidden w-12 h-1 bg-gray-300 rounded-full mx-auto mb-4"></div>
 
-                {/* 閉じるボタン */}
                 <button
                   onClick={() => setIsCommentsOpen(false)}
                   className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-[#4A3424] text-[#FFF6D9] hover:scale-110 transition-transform z-10"
@@ -457,15 +299,12 @@ export default function ShigotoSagashiPage() {
                   <X className="w-6 h-6" />
                 </button>
 
-                {/* タイトル */}
                 <h2 className="text-xl md:text-2xl font-black text-[#4A3424] pr-12">
                   コメント ({commentCount})
                 </h2>
               </div>
 
-              {/* スクロール可能なコンテンツ */}
               <div className="flex-1 overflow-y-auto p-6">
-                {/* 既存コメント表示 */}
                 <div className="space-y-4 mb-6">
                   {comments.map((comment) => (
                     <div key={comment.id} className="border-b border-gray-200 pb-4 last:border-0">
@@ -494,7 +333,6 @@ export default function ShigotoSagashiPage() {
                         </button>
                       </div>
 
-                      {/* 返信表示 */}
                       {comment.replies && comment.replies.length > 0 && (
                         <div className="ml-8 mt-3 space-y-3 border-l-2 border-[#F7CD63] pl-4">
                           {comment.replies.map((reply) => (
@@ -520,7 +358,6 @@ export default function ShigotoSagashiPage() {
                   ))}
                 </div>
 
-                {/* コメント入力フォーム */}
                 <div className="sticky bottom-0 bg-white pt-4 border-t-2 border-[#4A3424]">
                   <h3 className="font-black text-[#4A3424] mb-3">
                     {replyingTo ? "返信を書く" : "コメントを書く"}
@@ -553,7 +390,6 @@ export default function ShigotoSagashiPage() {
                     />
                     <button
                       onClick={() => {
-                        // ダミー送信処理
                         if (newComment.author && newComment.content) {
                           alert("コメントを送信しました！承認後に表示されます。");
                           setNewComment({ author: "", content: "" });

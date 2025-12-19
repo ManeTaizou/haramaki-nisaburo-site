@@ -23,4 +23,12 @@ export const episodes: Episode[] = [
     thumbnail: "/IMG_2726 2.PNG",
     description: "腹巻二三郎が仕事探しを始める10コマ漫画。",
   },
+  {
+    id: 2,
+    slug: "4koma-vol1",
+    title: "4コマ Vol.1",
+    format: "4コマ",
+    thumbnail: "/4koma/vol1/1コマ目完成.png",
+    description: "腹巻二三郎の4コマ漫画。",
+  },
 ];

@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { FaXTwitter, FaInstagram } from "react-icons/fa6";
+import Link from "next/link";
+import { FaXTwitter, FaInstagram, FaTiktok } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -7,38 +8,62 @@ export default function Footer() {
       <div className="container mx-auto px-4 text-center">
         {/* ロゴ */}
         <div className="mb-4 flex justify-center">
-          <Image
-            src="/logo.png"
-            alt="腹巻二三郎"
-            width={150}
-            height={50}
-            className="object-contain"
-          />
+          <Link href="/">
+            <Image
+              src="/logo.png"
+              alt="腹巻二三郎"
+              width={150}
+              height={50}
+              className="object-contain cursor-pointer hover:opacity-80 transition-opacity duration-200"
+            />
+          </Link>
         </div>
 
-        <p className="text-sm text-center">
-          © 2025 ManeTaizou
-        </p>
-        <div className="mt-4 flex justify-center gap-4">
+        {/* SNSアイコン */}
+        <div className="mt-4 mb-4 flex justify-center gap-4">
           <a
             href="https://x.com/Nisaburou_H"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="腹巻二三郎公式Xアカウント（別タブで開く）"
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#4A3424] hover:scale-110 hover:shadow-md transition-all duration-200"
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FFF6D9] hover:scale-110 hover:shadow-md transition-all duration-200"
           >
-            <FaXTwitter className="text-[#FFF6D9] text-xl" />
+            <FaXTwitter className="text-[#4A3424] text-base" />
           </a>
           <a
-            href="https://instagram.com/ManeTaizou"
+            href="https://instagram.com/nisaburou_h"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="InstagramでManeTaizouを見る"
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#4A3424] hover:scale-110 hover:shadow-md transition-all duration-200"
+            aria-label="Instagramでnisaburou_hを見る"
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FFF6D9] hover:scale-110 hover:shadow-md transition-all duration-200"
           >
-            <FaInstagram className="text-[#FFF6D9] text-xl" />
+            <FaInstagram className="text-[#4A3424] text-base" />
+          </a>
+          <a
+            href="https://www.tiktok.com/@manetaizou"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="TikTokでManeTaizouを見る"
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FFF6D9] hover:scale-110 hover:shadow-md transition-all duration-200"
+          >
+            <FaTiktok className="text-[#4A3424] text-base" />
           </a>
         </div>
+
+        {/* フッターリンク */}
+        <div className="mb-3 flex justify-center gap-4">
+          <Link href="/contact" className="text-xs text-[#4A3424] hover:underline font-bold">
+            お問い合わせ
+          </Link>
+          <span className="text-xs text-[#4A3424]">|</span>
+          <Link href="/privacy-policy" className="text-xs text-[#4A3424] hover:underline font-bold">
+            プライバシーポリシー
+          </Link>
+        </div>
+
+        <p className="text-sm text-center">
+          © 2025 NISABUROU STUDIO
+        </p>
       </div>
     </footer>
   );
