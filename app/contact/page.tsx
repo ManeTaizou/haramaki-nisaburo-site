@@ -70,8 +70,7 @@ export default function ContactPage() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border-2 border-[#4A3424] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F7CD63] font-bold placeholder:font-normal placeholder:text-[#4A3424]/65"
-                placeholder="山田 太郎"
+                className="w-full px-4 py-3 border-2 border-[#4A3424] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F7CD63] font-bold"
               />
             </div>
 
@@ -87,8 +86,7 @@ export default function ContactPage() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border-2 border-[#4A3424] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F7CD63] font-bold placeholder:font-normal placeholder:text-[#4A3424]/65"
-                placeholder="example@email.com"
+                className="w-full px-4 py-3 border-2 border-[#4A3424] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F7CD63] font-bold"
               />
             </div>
 
@@ -125,8 +123,7 @@ export default function ContactPage() {
                 onChange={handleChange}
                 required
                 rows={8}
-                className="w-full px-4 py-3 border-2 border-[#4A3424] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F7CD63] resize-none font-bold placeholder:font-normal placeholder:text-[#4A3424]/50"
-                placeholder="お問い合わせ内容をご記入ください"
+                className="w-full px-4 py-3 border-2 border-[#4A3424] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F7CD63] resize-none font-bold"
               />
             </div>
 

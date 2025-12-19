@@ -31,9 +31,9 @@ export default function ComicsPage() {
                 <button
                   key={format}
                   onClick={() => setSelectedFormat(format)}
-                  className={`px-6 py-2 rounded-full font-black text-sm transition-all duration-200 ${
+                  className={`px-6 py-2 rounded-full font-black text-sm transition-colors duration-200 ${
                     selectedFormat === format
-                      ? "bg-[#4A3424] text-[#FFF6D9] shadow-md scale-105"
+                      ? "bg-[#4A3424] text-[#FFF6D9] shadow-md"
                       : "bg-white text-[#4A3424] border-2 border-[#4A3424] hover:bg-[#FFF6D9]"
                   }`}
                 >
