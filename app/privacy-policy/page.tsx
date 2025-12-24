@@ -111,7 +111,7 @@ export default function PrivacyPolicyPage() {
                 本プライバシーポリシーに関するお問い合わせは、以下までお願いいたします。
               </p>
               <div className="mt-4 bg-[#FFF6D9] border-2 border-[#4A3424] rounded-lg p-4">
-                <p className="font-bold">運営者：NISABUROU STUDIO</p>
+                <p className="font-bold">運営者：KOTOMANE STUDIO</p>
                 <p className="font-bold mt-2">
                   お問い合わせ：
                   <a href="https://x.com/Nisaburou_H" target="_blank" rel="noopener noreferrer" className="text-[#4A3424] hover:underline ml-2">

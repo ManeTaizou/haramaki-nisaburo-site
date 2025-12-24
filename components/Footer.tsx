@@ -62,7 +62,7 @@ export default function Footer() {
         </div>
 
         <p className="text-sm text-center">
-          © 2025 NISABUROU STUDIO
+          © 2025 KOTOMANE STUDIO
         </p>
       </div>
     </footer>
