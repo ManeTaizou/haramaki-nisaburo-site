@@ -31,4 +31,12 @@ export const episodes: Episode[] = [
     thumbnail: "/4koma/vol1/1コマ目完成.png",
     description: "腹巻二三郎の4コマ漫画。",
   },
+  {
+    id: 3,
+    slug: "4koma-vol2",
+    title: "4コマ Vol.2",
+    format: "4コマ",
+    thumbnail: "/4koma/vol2/4koma-2-1.png",
+    description: "腹巻二三郎の4コマ漫画 第2弾。",
+  },
 ];
