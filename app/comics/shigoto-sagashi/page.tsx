@@ -58,40 +58,10 @@ export default function ShigotoSagashiPage() {
 
   // コメント機能の状態
   const [isCommentsOpen, setIsCommentsOpen] = useState(false);
-  const [comments, setComments] = useState<Comment[]>([
-    {
-      id: "1",
-      author: "漫画ファン太郎",
-      content: "二三郎さんの就活、応援してます！",
-      timestamp: "2024/12/15 14:30",
-      likes: 5,
-      isLiked: false,
-      isPending: false,
-      replies: [
-        {
-          id: "1-1",
-          author: "作者",
-          content: "ありがとうございます！頑張ります〜",
-          timestamp: "2024/12/15 15:00",
-          likes: 3,
-          isLiked: false,
-          isPending: false,
-        }
-      ]
-    },
-    {
-      id: "2",
-      author: "レトロ好き花子",
-      content: "昭和感がたまらないです。クロッキーのくだり、めちゃ笑いました！",
-      timestamp: "2024/12/16 10:20",
-      likes: 12,
-      isLiked: false,
-      isPending: false,
-    },
-  ]);
+  const [comments, setComments] = useState<Comment[]>([]);
   const [newComment, setNewComment] = useState({ author: "", content: "" });
   const [replyingTo, setReplyingTo] = useState<string | null>(null);
-  const [commentCount, setCommentCount] = useState(2);
+  const [commentCount, setCommentCount] = useState(0);
 
   const showAuthorComment = () => {
     setIsAuthorCommentOpen(true);
