@@ -37,20 +37,10 @@ export default function FourKomaVol1Page() {
 
   // コメント機能の状態
   const [isCommentsOpen, setIsCommentsOpen] = useState(false);
-  const [comments, setComments] = useState<Comment[]>([
-    {
-      id: "1",
-      author: "4コマファン",
-      content: "展開が面白い！続きが気になります！",
-      timestamp: "2024/12/17 10:00",
-      likes: 8,
-      isLiked: false,
-      isPending: false,
-    },
-  ]);
+  const [comments, setComments] = useState<Comment[]>([]);
   const [newComment, setNewComment] = useState({ author: "", content: "" });
   const [replyingTo, setReplyingTo] = useState<string | null>(null);
-  const [commentCount, setCommentCount] = useState(1);
+  const [commentCount, setCommentCount] = useState(0);
 
   const goToPrevious = () => {
     setCurrentIndex((prev) => Math.max(0, prev - 1));
