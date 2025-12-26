@@ -232,8 +232,8 @@ export default function ShigotoSagashiPage() {
       <HamburgerMenu />
       <main className="flex-1 relative md:pt-0">
         {/* カルーセルセクション */}
-        <section className="flex items-start justify-center pb-0 md:py-12">
-          <div className="w-full px-0 md:px-4 flex justify-center pt-[38px] md:pt-0">
+        <section className="absolute top-[38px] left-0 right-0 md:relative md:top-0 flex items-start justify-center pb-0 md:py-12">
+          <div className="w-full px-0 md:px-4 flex justify-center">
             {/* 画像表示エリア（スマホ：白カードなし全幅、iPad/PC：白カードあり） */}
             <div className="relative bg-transparent md:bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg px-0 md:px-8 py-0 md:py-8 w-full max-w-full md:max-w-4xl">
               <div
@@ -346,7 +346,7 @@ export default function ShigotoSagashiPage() {
 
         {/* スマホ版：アイコンと吹き出し（ドットの下） */}
         {authorComments[currentIndex] && (
-          <div className="block md:hidden w-[90%] mx-auto pb-8">
+          <div className="block md:hidden w-[90%] mx-auto mt-16 pb-8">
             <div className="flex items-center gap-3 justify-end">
               {/* 吹き出し */}
               <div className={`flex-1 bg-white rounded-lg shadow-lg p-4 min-h-[80px] flex items-center transition-opacity duration-200 ${
