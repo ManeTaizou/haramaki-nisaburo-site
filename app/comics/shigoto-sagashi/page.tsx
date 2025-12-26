@@ -97,22 +97,37 @@ export default function ShigotoSagashiPage() {
 
   // ページビューとイイネの初期化
   useEffect(() => {
-    // ページビューカウント
-    const viewedKey = "shigoto-sagashi-viewed";
-    const viewCountKey = "shigoto-sagashi-views";
+    const pageId = "shigoto-sagashi";
+    const viewedKey = `${pageId}-viewed`;
 
-    const hasViewed = localStorage.getItem(viewedKey);
-    const storedViews = localStorage.getItem(viewCountKey);
+    // ビューカウントを取得・更新
+    const fetchViews = async () => {
+      try {
+        const hasViewed = localStorage.getItem(viewedKey);
 
-    let currentViews = storedViews ? JSON.parse(storedViews) : 0;
+        if (!hasViewed) {
+          // 未訪問の場合、カウントを増やす
+          const response = await fetch('/api/views', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ page: pageId }),
+          });
+          const data = await response.json();
+          setPageViews(data.views || 0);
+          localStorage.setItem(viewedKey, "true");
+        } else {
+          // 訪問済みの場合、現在のカウントを取得
+          const response = await fetch(`/api/views?page=${pageId}`);
+          const data = await response.json();
+          setPageViews(data.views || 0);
+        }
+      } catch (error) {
+        console.error('Error fetching views:', error);
+        setPageViews(0);
+      }
+    };
 
-    if (!hasViewed) {
-      currentViews += 1;
-      localStorage.setItem(viewedKey, "true");
-      localStorage.setItem(viewCountKey, JSON.stringify(currentViews));
-    }
-
-    setPageViews(currentViews);
+    fetchViews();
 
     // イイネの状態を復元
     const storedLiked = localStorage.getItem("shigoto-sagashi-liked");
