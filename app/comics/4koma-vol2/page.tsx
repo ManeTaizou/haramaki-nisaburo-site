@@ -54,15 +54,19 @@ export default function FourKomaVol2Page() {
     setCurrentIndex(index);
   };
 
-  const handleLike = () => {
-    const newLikedState = !isLiked;
-    setIsLiked(newLikedState);
-
-    const newCount = newLikedState ? likeCount + 1 : likeCount - 1;
-    setLikeCount(newCount);
-
-    localStorage.setItem("4koma-vol2-liked", JSON.stringify(newLikedState));
-    localStorage.setItem("4koma-vol2-likes", JSON.stringify(newCount));
+  const handleLike = async () => {
+    try {
+      const response = await fetch('/api/likes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ page: '4koma-vol2' }),
+      });
+      const data = await response.json();
+      setLikeCount(data.likes || 0);
+      setIsLiked(data.isLiked || false);
+    } catch (error) {
+      console.error('Error toggling like:', error);
+    }
   };
 
   // ページビューとイイネの初期化
@@ -100,15 +104,20 @@ export default function FourKomaVol2Page() {
     fetchViews();
 
     // イイネの初期化
-    const storedLiked = localStorage.getItem("4koma-vol2-liked");
-    const storedLikes = localStorage.getItem("4koma-vol2-likes");
+    const fetchLikes = async () => {
+      try {
+        const response = await fetch(`/api/likes?page=${pageId}`);
+        const data = await response.json();
+        setLikeCount(data.likes || 0);
+        setIsLiked(data.isLiked || false);
+      } catch (error) {
+        console.error('Error fetching likes:', error);
+        setLikeCount(0);
+        setIsLiked(false);
+      }
+    };
 
-    if (storedLiked) {
-      setIsLiked(JSON.parse(storedLiked));
-    }
-    if (storedLikes) {
-      setLikeCount(JSON.parse(storedLikes));
-    }
+    fetchLikes();
   }, []);
 
   // スワイプ機能

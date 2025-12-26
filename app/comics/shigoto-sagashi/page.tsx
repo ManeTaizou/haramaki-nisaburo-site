@@ -83,16 +83,19 @@ export default function ShigotoSagashiPage() {
     setCurrentIndex(index);
   };
 
-  const handleLike = () => {
-    const newLikedState = !isLiked;
-    setIsLiked(newLikedState);
-
-    const newCount = newLikedState ? likeCount + 1 : likeCount - 1;
-    setLikeCount(newCount);
-
-    // localStorageに保存
-    localStorage.setItem("shigoto-sagashi-liked", JSON.stringify(newLikedState));
-    localStorage.setItem("shigoto-sagashi-likes", JSON.stringify(newCount));
+  const handleLike = async () => {
+    try {
+      const response = await fetch('/api/likes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ page: 'shigoto-sagashi' }),
+      });
+      const data = await response.json();
+      setLikeCount(data.likes || 0);
+      setIsLiked(data.isLiked || false);
+    } catch (error) {
+      console.error('Error toggling like:', error);
+    }
   };
 
   // ページビューとイイネの初期化
@@ -129,16 +132,21 @@ export default function ShigotoSagashiPage() {
 
     fetchViews();
 
-    // イイネの状態を復元
-    const storedLiked = localStorage.getItem("shigoto-sagashi-liked");
-    const storedLikes = localStorage.getItem("shigoto-sagashi-likes");
+    // イイネの初期化
+    const fetchLikes = async () => {
+      try {
+        const response = await fetch(`/api/likes?page=${pageId}`);
+        const data = await response.json();
+        setLikeCount(data.likes || 0);
+        setIsLiked(data.isLiked || false);
+      } catch (error) {
+        console.error('Error fetching likes:', error);
+        setLikeCount(0);
+        setIsLiked(false);
+      }
+    };
 
-    if (storedLiked) {
-      setIsLiked(JSON.parse(storedLiked));
-    }
-    if (storedLikes) {
-      setLikeCount(JSON.parse(storedLikes));
-    }
+    fetchLikes();
   }, []);
 
   // スワイプ機能（方向判定付き）
