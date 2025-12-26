@@ -14,9 +14,9 @@ export const metadata: Metadata = {
   title: "腹巻二三郎｜HARAMAKI NISABUROU Official",
   metadataBase: new URL('https://nisaburou.com'),
   openGraph: {
-    title: "腹巻二三郎｜HARAMAKI NISABUROU Official",
+    title: "腹巻二三郎",
     url: 'https://nisaburou.com',
-    siteName: "腹巻二三郎｜HARAMAKI NISABUROU Official",
+    siteName: "腹巻二三郎",
     locale: 'ja_JP',
     type: 'website',
     images: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "腹巻二三郎｜HARAMAKI NISABUROU Official",
+    title: "腹巻二三郎",
     images: ['/logo.png'],
   },
   robots: {
