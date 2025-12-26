@@ -230,10 +230,10 @@ export default function ShigotoSagashiPage() {
   return (
     <div className="relative min-h-screen bg-[#F7CD63] flex flex-col">
       <HamburgerMenu />
-      <main className="flex-1 relative pt-[38px] md:pt-0">
+      <main className="flex-1 relative md:pt-0">
         {/* カルーセルセクション */}
-        <section className="flex items-start justify-center py-0 md:py-12 -mt-[38px] md:mt-0">
-          <div className="w-full px-0 md:px-4 flex justify-center">
+        <section className="flex items-start justify-center pb-0 md:py-12">
+          <div className="w-full px-0 md:px-4 flex justify-center pt-[38px] md:pt-0">
             {/* 画像表示エリア（スマホ：白カードなし全幅、iPad/PC：白カードあり） */}
             <div className="relative bg-transparent md:bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg px-0 md:px-8 py-0 md:py-8 w-full max-w-full md:max-w-4xl">
               <div
