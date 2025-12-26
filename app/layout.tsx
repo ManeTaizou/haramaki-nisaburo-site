@@ -11,12 +11,12 @@ const mPlusRounded = M_PLUS_Rounded_1c({
 });
 
 export const metadata: Metadata = {
-  title: "腹巻二三郎",
+  title: "腹巻二三郎｜HARAMAKI NISABUROU Official",
   metadataBase: new URL('https://nisaburou.com'),
   openGraph: {
-    title: "腹巻二三郎",
+    title: "腹巻二三郎｜HARAMAKI NISABUROU Official",
     url: 'https://nisaburou.com',
-    siteName: "腹巻二三郎",
+    siteName: "腹巻二三郎｜HARAMAKI NISABUROU Official",
     locale: 'ja_JP',
     type: 'website',
     images: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "腹巻二三郎",
+    title: "腹巻二三郎｜HARAMAKI NISABUROU Official",
     images: ['/logo.png'],
   },
   robots: {
