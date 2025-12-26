@@ -1,5 +1,7 @@
-import { kv } from '@vercel/kv';
+import Redis from 'ioredis';
 import { NextRequest, NextResponse } from 'next/server';
+
+const redis = new Redis(process.env.REDIS_URL!);
 
 export async function GET(request: NextRequest) {
   try {
@@ -11,7 +13,8 @@ export async function GET(request: NextRequest) {
     }
 
     const key = `views:${page}`;
-    const views = (await kv.get<number>(key)) || 0;
+    const viewsStr = await redis.get(key);
+    const views = viewsStr ? parseInt(viewsStr, 10) : 0;
 
     return NextResponse.json({ views });
   } catch (error) {
@@ -29,7 +32,7 @@ export async function POST(request: NextRequest) {
     }
 
     const key = `views:${page}`;
-    const views = await kv.incr(key);
+    const views = await redis.incr(key);
 
     return NextResponse.json({ views });
   } catch (error) {
