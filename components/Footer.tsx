@@ -25,7 +25,7 @@ export default function Footer() {
             href="https://x.com/Nisaburou_H"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="腹巻二三郎公式Xアカウント（別タブで開く）"
+            aria-label="腹巻二三郎 Xアカウント（別タブで開く）"
             className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FFF6D9] hover:scale-110 hover:shadow-md transition-all duration-200"
           >
             <FaXTwitter className="text-[#4A3424] text-base" />

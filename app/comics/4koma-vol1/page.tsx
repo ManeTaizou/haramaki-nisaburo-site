@@ -193,9 +193,9 @@ export default function FourKomaVol1Page() {
   return (
     <div className="relative min-h-screen bg-[#F7CD63] flex flex-col">
       <HamburgerMenu />
-      <main className="flex-1 relative">
+      <main className="flex-1 relative pt-16 md:pt-0">
         {/* カルーセルセクション */}
-        <section className="flex items-center justify-center py-8 md:pt-36 md:pb-12">
+        <section className="flex items-center justify-center py-4 md:pt-36 md:pb-12">
           <div className="w-full px-0 md:px-4 flex justify-center">
             <div className="relative bg-transparent md:bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg px-0 md:px-8 py-0 md:py-8 w-full max-w-full md:max-w-5xl">
               <div

@@ -48,14 +48,30 @@ export default function HamburgerMenu() {
 
   return (
     <>
-      {/* ハンバーガーボタン（モバイル/タブレットのみ表示） */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className="md:hidden fixed top-4 right-4 z-50 w-12 h-12 flex items-center justify-center rounded-full bg-[#4A3424] text-[#FFF6D9] shadow-lg hover:scale-110 transition-transform duration-200"
-        aria-label="メニューを開く"
-      >
-        <Menu className="w-6 h-6" />
-      </button>
+      {/* 固定ヘッダーバー（モバイルのみ） */}
+      <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-[#F7CD63] border-b-2 border-[#4A3424] shadow-md">
+        <div className="flex items-center justify-center h-[36px] relative">
+          {/* ロゴ（中央） */}
+          <Link href="/" className="flex items-center mt-[5px]">
+            <Image
+              src="/logo.png"
+              alt="腹巻二三郎"
+              width={95}
+              height={31}
+              className="block"
+            />
+          </Link>
+
+          {/* ハンバーガーメニューボタン（右端） */}
+          <button
+            onClick={() => setIsOpen(true)}
+            className="absolute right-3 flex items-center text-[#4A3424] hover:opacity-70 transition-opacity duration-200"
+            aria-label="メニューを開く"
+          >
+            <Menu className="w-6 h-6" strokeWidth={2.5} />
+          </button>
+        </div>
+      </div>
 
       {/* メニューオーバーレイ */}
       <AnimatePresence>

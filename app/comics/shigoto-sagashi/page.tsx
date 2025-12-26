@@ -230,15 +230,15 @@ export default function ShigotoSagashiPage() {
   return (
     <div className="relative min-h-screen bg-[#F7CD63] flex flex-col">
       <HamburgerMenu />
-      <main className="flex-1 relative">
+      <main className="flex-1 relative pt-[38px] md:pt-0">
         {/* カルーセルセクション */}
-        <section className="flex items-center justify-center py-8 md:py-12">
+        <section className="flex items-center justify-center py-0 md:py-12">
           <div className="w-full px-0 md:px-4 flex justify-center">
             {/* 画像表示エリア（スマホ：白カードなし全幅、iPad/PC：白カードあり） */}
             <div className="relative bg-transparent md:bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg px-0 md:px-8 py-0 md:py-8 w-full max-w-full md:max-w-4xl">
               <div
                 id="comic-container"
-                className="relative w-full aspect-[1080/1350] md:aspect-auto md:h-[600px] mx-auto overflow-hidden"
+                className="relative w-full h-[calc(100vh-38px-160px)] md:aspect-auto md:h-[600px] mx-auto overflow-hidden"
               >
                 <motion.div
                   className="flex h-full"
@@ -298,7 +298,7 @@ export default function ShigotoSagashiPage() {
         )}
 
         {/* ドットインジケーター（相対位置指定でカウンターの基準に） */}
-        <div className="relative flex justify-center gap-2 pb-4 md:pb-16">
+        <div className="relative flex justify-center gap-2 mt-4 pb-4 md:pb-16">
           {comicPages.map((_, index) => (
             <button
               key={index}
@@ -346,7 +346,7 @@ export default function ShigotoSagashiPage() {
 
         {/* スマホ版：アイコンと吹き出し（ドットの下） */}
         {authorComments[currentIndex] && (
-          <div className="block md:hidden w-[90%] mx-auto pb-4">
+          <div className="block md:hidden w-[90%] mx-auto pb-8">
             <div className="flex items-center gap-3 justify-end">
               {/* 吹き出し */}
               <div className={`flex-1 bg-white rounded-lg shadow-lg p-4 min-h-[80px] flex items-center transition-opacity duration-200 ${

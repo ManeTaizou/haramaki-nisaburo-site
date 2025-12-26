@@ -11,8 +11,35 @@ const mPlusRounded = M_PLUS_Rounded_1c({
 });
 
 export const metadata: Metadata = {
-  title: "腹巻二三郎 公式サイト",
-  description: "昭和レトロでゆるくてポップな漫画IP「腹巻二三郎」の公式Webサイト",
+  title: "腹巻二三郎",
+  metadataBase: new URL('https://nisaburou.com'),
+  openGraph: {
+    title: "腹巻二三郎",
+    url: 'https://nisaburou.com',
+    siteName: "腹巻二三郎",
+    locale: 'ja_JP',
+    type: 'website',
+    images: [
+      {
+        url: '/logo.png',
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "腹巻二三郎",
+    images: ['/logo.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 };
 
 export default function RootLayout({
