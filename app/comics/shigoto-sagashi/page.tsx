@@ -232,7 +232,7 @@ export default function ShigotoSagashiPage() {
       <HamburgerMenu />
       <main className="flex-1 relative">
         {/* カルーセルセクション */}
-        <section className="flex items-center justify-center pt-20 pb-8 md:py-12">
+        <section className="flex items-center justify-center py-8 md:py-12">
           <div className="w-full px-0 md:px-4 flex justify-center">
             {/* 画像表示エリア（スマホ：白カードなし全幅、iPad/PC：白カードあり） */}
             <div className="relative bg-transparent md:bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg px-0 md:px-8 py-0 md:py-8 w-full max-w-full md:max-w-4xl">
@@ -569,9 +569,7 @@ export default function ShigotoSagashiPage() {
         )}
       </AnimatePresence>
 
-      <div className="hidden md:block">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }
