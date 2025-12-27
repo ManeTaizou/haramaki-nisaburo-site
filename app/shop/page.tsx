@@ -59,7 +59,7 @@ export default function ShopPage() {
 
   return (
     <div className="min-h-screen bg-[#F7CD63] flex flex-col">
-      <main className="flex-1 container mx-auto px-4 py-8 md:py-12 min-h-[calc(100vh-200px)]">
+      <main className="flex-1 container mx-auto px-4 pt-[56px] pb-8 md:py-12 min-h-[calc(100vh-200px)]">
         {/* ヘッダー */}
         <div className="text-center mb-8 md:mb-12">
           <h1 className="text-4xl md:text-5xl font-black text-[#4A3424] mb-4">

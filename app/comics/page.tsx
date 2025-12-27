@@ -22,7 +22,7 @@ export default function ComicsPage() {
           {/* ページタイトル */}
           <header className="mb-10 text-center">
             <h1 className="text-3xl md:text-4xl font-black text-[#4A3424] mb-6">
-              エピソード集
+              エピソード
             </h1>
 
             {/* フィルターボタン */}
