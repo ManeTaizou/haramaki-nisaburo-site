@@ -92,20 +92,15 @@ export default function ContactPage() {
               <label htmlFor="subject" className="block text-[#4A3424] font-black mb-2">
                 件名 <span className="text-red-600">*</span>
               </label>
-              <select
+              <input
+                type="text"
                 id="subject"
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border-2 border-[#4A3424] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F7CD63] font-bold text-[#4A3424]/50 data-[value]:text-[#4A3424]"
-              >
-                <option value="" className="text-[#4A3424]/50">選択してください</option>
-                <option value="ご意見・ご感想">ご意見・ご感想</option>
-                <option value="お仕事のご依頼">お仕事のご依頼</option>
-                <option value="グッズについて">グッズについて</option>
-                <option value="その他">その他</option>
-              </select>
+                className="w-full px-4 py-3 border-2 border-[#4A3424] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F7CD63] font-bold"
+              />
             </div>
 
             {/* お問い合わせ内容 */}

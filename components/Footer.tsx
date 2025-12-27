@@ -40,10 +40,10 @@ export default function Footer() {
             <FaInstagram className="text-[#4A3424] text-base" />
           </a>
           <a
-            href="https://www.tiktok.com/@manetaizou"
+            href="https://www.tiktok.com/@nisaburou"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="TikTokでManeTaizouを見る"
+            aria-label="TikTokでnisaburouを見る"
             className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FFF6D9] hover:scale-110 hover:shadow-md transition-all duration-200"
           >
             <FaTiktok className="text-[#4A3424] text-base" />
@@ -52,11 +52,11 @@ export default function Footer() {
 
         {/* フッターリンク */}
         <div className="mb-3 flex justify-center gap-4">
-          <Link href="/contact" className="text-xs text-[#4A3424] hover:underline font-bold">
+          <Link href="/contact" className="text-[11px] md:text-xs text-[#4A3424] hover:underline font-bold">
             お問い合わせ
           </Link>
-          <span className="text-xs text-[#4A3424]">|</span>
-          <Link href="/privacy-policy" className="text-xs text-[#4A3424] hover:underline font-bold">
+          <span className="text-[11px] md:text-xs text-[#4A3424]">|</span>
+          <Link href="/privacy-policy" className="text-[11px] md:text-xs text-[#4A3424] hover:underline font-bold">
             プライバシーポリシー
           </Link>
         </div>

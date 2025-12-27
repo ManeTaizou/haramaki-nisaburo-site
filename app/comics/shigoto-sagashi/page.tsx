@@ -296,7 +296,7 @@ export default function ShigotoSagashiPage() {
         )}
 
         {/* ドットインジケーター（相対位置指定でカウンターの基準に） */}
-        <div className="relative flex justify-center gap-2 mt-4 pb-4 md:pb-16">
+        <div className="relative flex justify-center gap-2 mt-4 md:mt-2 pb-4 md:pb-12">
           {comicPages.map((_, index) => (
             <button
               key={index}
@@ -311,7 +311,7 @@ export default function ShigotoSagashiPage() {
           ))}
 
           {/* ページビュー＆LIKEボタン＆コメントボタン（絶対配置でレイアウトに影響なし） */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-6 md:top-8 flex items-center gap-6 md:gap-10">
+          <div className="absolute left-1/2 -translate-x-1/2 top-6 flex items-center gap-6 md:gap-10">
             {/* ページビュー */}
             <div className="flex items-center gap-2 text-[#4A3424]">
               <Eye className="w-5 h-5" />
