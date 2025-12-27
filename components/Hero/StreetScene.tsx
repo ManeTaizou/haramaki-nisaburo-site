@@ -94,7 +94,7 @@ export default function StreetScene() {
       <div className="relative w-full min-h-screen">
         <div className="relative w-full h-screen">
           <Image
-            src="/haramaki-village.png"
+            src="/top.png"
             alt="腹巻村の街並み - 腹巻商店とポスト"
             fill
             className="object-cover"
