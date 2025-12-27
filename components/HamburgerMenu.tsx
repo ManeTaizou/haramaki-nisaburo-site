@@ -109,32 +109,17 @@ export default function HamburgerMenu() {
                 <div className="grid grid-cols-3 gap-3 max-w-md mx-auto">
                   {menuItems.map((item, index) => (
                     <div key={index}>
-                      {item.external ? (
-                        <a
-                          href={item.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`flex items-center justify-center p-4 rounded-lg bg-white shadow-md transition-all duration-200 ${
-                            item.disabled
-                              ? "opacity-50 cursor-not-allowed"
-                              : "hover:scale-105 hover:shadow-lg"
-                          }`}
-                        >
-                          <div className="text-[#4A3424]">{item.icon}</div>
-                        </a>
-                      ) : (
-                        <Link
-                          href={item.href}
-                          onClick={() => !item.disabled && setIsOpen(false)}
-                          className={`flex items-center justify-center p-4 rounded-lg bg-white shadow-md transition-all duration-200 ${
-                            item.disabled
-                              ? "opacity-50 cursor-not-allowed pointer-events-none"
-                              : "hover:scale-105 hover:shadow-lg"
-                          }`}
-                        >
-                          <div className="text-[#4A3424]">{item.icon}</div>
-                        </Link>
-                      )}
+                      <Link
+                        href={item.href}
+                        onClick={() => !item.disabled && setIsOpen(false)}
+                        className={`flex items-center justify-center p-4 rounded-lg bg-white shadow-md transition-all duration-200 ${
+                          item.disabled
+                            ? "opacity-50 cursor-not-allowed pointer-events-none"
+                            : "hover:scale-105 hover:shadow-lg"
+                        }`}
+                      >
+                        <div className="text-[#4A3424]">{item.icon}</div>
+                      </Link>
                     </div>
                   ))}
                 </div>
