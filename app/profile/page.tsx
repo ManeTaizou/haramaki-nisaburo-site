@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { FaXTwitter, FaInstagram } from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6";
 import Footer from "@/components/Footer";
 
 export default function ProfilePage() {
@@ -29,7 +28,7 @@ export default function ProfilePage() {
             ManeTaizou
           </h1>
           <p className="text-lg text-[#4A3424]/70 text-center mb-6">
-            漫画家 / イラストレーター
+            デジタルクリエイター
           </p>
 
           {/* 自己紹介 */}
@@ -43,7 +42,7 @@ export default function ProfilePage() {
           </div>
 
           {/* SNSリンク */}
-          <div className="mb-8">
+          <div>
             <h2 className="text-xl font-bold text-[#4A3424] mb-4 border-b-2 border-[#4A3424] pb-2">
               SNS
             </h2>
@@ -57,34 +56,7 @@ export default function ProfilePage() {
                 <FaXTwitter className="text-xl" />
                 <span>X (Twitter)</span>
               </a>
-              <a
-                href="https://instagram.com/ManeTaizou"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-[#4A3424] text-[#FFF6D9] rounded-lg hover:scale-105 transition-transform"
-              >
-                <FaInstagram className="text-xl" />
-                <span>Instagram</span>
-              </a>
             </div>
-          </div>
-
-          {/* 作品 */}
-          <div>
-            <h2 className="text-xl font-bold text-[#4A3424] mb-4 border-b-2 border-[#4A3424] pb-2">
-              主な作品
-            </h2>
-            <ul className="space-y-2">
-              <li className="text-[#4A3424]">
-                <Link
-                  href="/comics/shigoto-sagashi"
-                  className="hover:underline hover:text-[#4A3424]/70"
-                >
-                  • 仕事探しの巻（10コマ漫画）
-                </Link>
-              </li>
-              <li className="text-[#4A3424]/70">• その他の作品はこちらに追加できます</li>
-            </ul>
           </div>
         </div>
       </main>
