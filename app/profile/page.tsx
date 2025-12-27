@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 export default function ProfilePage() {
   return (
     <div className="min-h-screen bg-[#F7CD63] flex flex-col">
-      <main className="flex-1 container mx-auto px-4 py-8 md:py-12">
+      <main className="flex-1 container mx-auto px-4 pt-20 pb-8 md:pt-24 md:pb-12">
         {/* プロフィールカード */}
         <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8">
           {/* プロフィール画像 */}
@@ -38,10 +38,7 @@ export default function ProfilePage() {
               自己紹介
             </h2>
             <p className="text-[#4A3424] leading-relaxed whitespace-pre-line">
-              ここに自己紹介文を入力してください。
-
-              複数行にわたる紹介文も可能です。
-              経歴や作品についてなど、自由に記述できます。
+              子どもの頃の夢は漫画家。遠回りして、半世紀後にやっとスタートできました。
             </p>
           </div>
 
