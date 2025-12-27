@@ -59,8 +59,7 @@ export default function HamburgerMenu() {
     },
     {
       icon: <Store className="w-10 h-10" />,
-      href: "#",
-      disabled: true,
+      href: "/shop",
     },
     {
       icon: <Video className="w-10 h-10" />,
