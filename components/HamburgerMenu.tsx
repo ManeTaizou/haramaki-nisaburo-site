@@ -13,14 +13,28 @@ export default function HamburgerMenu() {
   // メニューが開いている時は背景のスクロールを無効化
   useEffect(() => {
     if (isOpen) {
+      // スクロール位置を保存
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "unset";
+      // スクロール位置を復元
+      const scrollY = document.body.style.top;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+      window.scrollTo(0, parseInt(scrollY || "0") * -1);
     }
 
     // クリーンアップ
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
     };
   }, [isOpen]);
 
@@ -119,7 +133,7 @@ export default function HamburgerMenu() {
               </div>
 
               {/* グリッドメニュー */}
-              <div className="flex-1 overflow-y-auto p-4">
+              <div className="flex-1 p-4 overflow-hidden">
                 <div className="grid grid-cols-3 gap-3 max-w-md mx-auto">
                   {menuItems.map((item, index) => (
                     <div key={index}>
