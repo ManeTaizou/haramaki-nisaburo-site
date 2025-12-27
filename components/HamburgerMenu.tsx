@@ -101,11 +101,15 @@ export default function HamburgerMenu() {
 
           {/* ハンバーガーメニューボタン（右端） */}
           <button
-            onClick={() => setIsOpen(true)}
-            className="absolute right-3 flex items-center text-[#4A3424] hover:opacity-70 transition-opacity duration-200"
-            aria-label="メニューを開く"
+            onClick={() => setIsOpen(!isOpen)}
+            className="absolute right-3 flex items-center text-[#4A3424] hover:opacity-70 transition-opacity duration-200 z-[60]"
+            aria-label={isOpen ? "メニューを閉じる" : "メニューを開く"}
           >
-            <Menu className="w-6 h-6" strokeWidth={2.5} />
+            {isOpen ? (
+              <X className="w-6 h-6" strokeWidth={2.5} />
+            ) : (
+              <Menu className="w-6 h-6" strokeWidth={2.5} />
+            )}
           </button>
         </div>
       </div>
@@ -118,22 +122,10 @@ export default function HamburgerMenu() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed top-[38px] left-0 right-0 bottom-0 z-50 bg-[#F7CD63] overflow-hidden flex flex-col"
+              className="fixed top-[38px] left-0 right-0 bottom-0 z-50 bg-[#F7CD63] overflow-y-auto flex flex-col"
             >
-              {/* ヘッダー */}
-              <div className="relative pt-3 pb-2 border-b-2 border-[#4A3424]">
-                {/* 閉じるボタン */}
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center rounded-full bg-[#4A3424] text-[#FFF6D9] hover:scale-110 transition-transform duration-200"
-                  aria-label="閉じる"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
               {/* グリッドメニュー */}
-              <div className="flex-1 p-4 overflow-hidden">
+              <div className="flex-1 p-4">
                 <div className="grid grid-cols-3 gap-3 max-w-md mx-auto">
                   {menuItems.map((item, index) => (
                     <div key={index}>
