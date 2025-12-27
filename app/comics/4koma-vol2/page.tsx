@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Eye, Heart, MessageCircle, X, Send, ThumbsUp } from "lucide-react";
 import Footer from "@/components/Footer";
-import HamburgerMenu from "@/components/HamburgerMenu";
 
 interface Comment {
   id: string;
@@ -192,7 +191,6 @@ export default function FourKomaVol2Page() {
 
   return (
     <div className="relative min-h-screen bg-[#F7CD63] flex flex-col">
-      <HamburgerMenu />
       <main className="flex-1 relative pt-16 md:pt-0">
         {/* カルーセルセクション */}
         <section className="flex items-center justify-center py-4 md:pt-36 md:pb-12">

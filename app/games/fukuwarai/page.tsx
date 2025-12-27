@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
-import HamburgerMenu from "@/components/HamburgerMenu";
 
 type PartPosition = {
   x: number;
@@ -212,8 +211,6 @@ export default function FukuwaraiPage() {
 
   return (
     <div className="min-h-screen bg-[#F7CD63] flex flex-col">
-      <HamburgerMenu />
-
       <main className="flex-1 container mx-auto px-4 py-12">
         <h1 className="text-3xl md:text-4xl font-black text-[#4A3424] text-center mb-8">
           二三郎の福笑い

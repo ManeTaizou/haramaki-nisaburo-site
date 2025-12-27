@@ -4,12 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaXTwitter, FaInstagram } from "react-icons/fa6";
 import Footer from "@/components/Footer";
-import HamburgerMenu from "@/components/HamburgerMenu";
 
 export default function ProfilePage() {
   return (
     <div className="min-h-screen bg-[#F7CD63] flex flex-col">
-      <HamburgerMenu />
       <main className="flex-1 container mx-auto px-4 py-8 md:py-12">
         {/* ヘッダー */}
         <div className="mb-8 text-center">

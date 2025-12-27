@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Footer from "@/components/Footer";
-import HamburgerMenu from "@/components/HamburgerMenu";
 import { Send } from "lucide-react";
 
 export default function ContactPage() {
@@ -45,8 +44,6 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-[#F7CD63] flex flex-col">
-      <HamburgerMenu />
-
       <main className="flex-1 container mx-auto px-4 py-12 md:py-16 max-w-3xl">
         <div className="bg-white rounded-2xl shadow-lg border-4 border-[#4A3424] p-6 md:p-10">
           <h1 className="text-3xl md:text-4xl font-black text-[#4A3424] mb-4 text-center">

@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ShoppingCart } from "lucide-react";
 import Footer from "@/components/Footer";
-import HamburgerMenu from "@/components/HamburgerMenu";
 
 interface Product {
   id: string;
@@ -60,8 +59,6 @@ export default function ShopPage() {
 
   return (
     <div className="min-h-screen bg-[#F7CD63] flex flex-col">
-      <HamburgerMenu />
-
       <main className="flex-1 container mx-auto px-4 py-8 md:py-12 min-h-[calc(100vh-200px)]">
         {/* ヘッダー */}
         <div className="text-center mb-8 md:mb-12">

@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Eye, Heart, MessageCircle, X, Send, ThumbsUp } from "lucide-react";
 import Footer from "@/components/Footer";
-import HamburgerMenu from "@/components/HamburgerMenu";
 
 interface Comment {
   id: string;
@@ -229,7 +228,6 @@ export default function ShigotoSagashiPage() {
 
   return (
     <div className="relative min-h-screen bg-[#F7CD63] flex flex-col">
-      <HamburgerMenu />
       <main className="flex-1 relative pt-[38px] md:pt-0">
         {/* カルーセルセクション */}
         <section className="flex items-start justify-center py-0 md:py-12">

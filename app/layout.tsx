@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { M_PLUS_Rounded_1c } from "next/font/google";
 import Script from "next/script";
+import HamburgerMenu from "@/components/HamburgerMenu";
 import "./globals.css";
 
 const mPlusRounded = M_PLUS_Rounded_1c({
@@ -67,6 +68,7 @@ export default function RootLayout({
         className={`${mPlusRounded.variable} font-sans antialiased`}
         style={{ fontFamily: "var(--font-mplus-rounded)", fontWeight: "700" }}
       >
+        <HamburgerMenu />
         {children}
       </body>
     </html>
