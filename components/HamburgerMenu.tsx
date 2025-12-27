@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,6 +9,20 @@ import { FaXTwitter, FaInstagram } from "react-icons/fa6";
 
 export default function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
+
+  // メニューが開いている時は背景のスクロールを無効化
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    // クリーンアップ
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   const menuItems = [
     {

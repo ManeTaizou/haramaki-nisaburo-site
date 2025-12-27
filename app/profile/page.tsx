@@ -9,16 +9,6 @@ export default function ProfilePage() {
   return (
     <div className="min-h-screen bg-[#F7CD63] flex flex-col">
       <main className="flex-1 container mx-auto px-4 py-8 md:py-12">
-        {/* ヘッダー */}
-        <div className="mb-8 text-center">
-          <Link
-            href="/"
-            className="inline-block text-[#4A3424] hover:opacity-70 transition-opacity mb-4"
-          >
-            ← トップページに戻る
-          </Link>
-        </div>
-
         {/* プロフィールカード */}
         <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8">
           {/* プロフィール画像 */}
