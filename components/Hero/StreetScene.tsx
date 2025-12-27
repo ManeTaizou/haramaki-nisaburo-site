@@ -48,13 +48,14 @@ function Hotspot({ href, label, position, size }: HotspotProps) {
 }
 
 export default function StreetScene() {
-  const BLIMP_DURATION = 120; // 秒
-  const [showBlimp, setShowBlimp] = useState(true);
+  // 飛行船アニメーション（一時的に非表示）
+  // const BLIMP_DURATION = 120; // 秒
+  // const [showBlimp, setShowBlimp] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setShowBlimp(false), BLIMP_DURATION * 1000);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => setShowBlimp(false), BLIMP_DURATION * 1000);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   // const hotspots = [
   //   {
@@ -106,8 +107,8 @@ export default function StreetScene() {
             ))}
           </div> */}
 
-          {/* 飛行船アニメーション */}
-          {showBlimp && (
+          {/* 飛行船アニメーション（一時的に非表示）*/}
+          {/* {showBlimp && (
             <motion.img
               src="/hikosen.png"
               alt="腹巻二三郎 飛行船"
@@ -116,7 +117,7 @@ export default function StreetScene() {
               animate={{ x: "-110vw", opacity: 1 }}
               transition={{ duration: BLIMP_DURATION, ease: "linear" }}
             />
-          )}
+          )} */}
         </div>
       </div>
     </section>
