@@ -55,7 +55,7 @@ export default function HamburgerMenu() {
     },
     {
       icon: <BookOpen className="w-10 h-10" />,
-      href: "/comics/shigoto-sagashi",
+      href: "/comics",
     },
     {
       icon: <Store className="w-10 h-10" />,
