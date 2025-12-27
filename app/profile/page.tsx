@@ -37,7 +37,7 @@ export default function ProfilePage() {
               自己紹介
             </h2>
             <p className="text-[#4A3424] leading-relaxed whitespace-pre-line">
-              子どもの頃の夢は漫画家。遠回りして、半世紀後にやっとスタートできました。
+              子供の頃の夢は漫画家でした。遠回りして、やっと夢が叶いました。
             </p>
           </div>
 
@@ -48,7 +48,7 @@ export default function ProfilePage() {
             </h2>
             <div className="flex justify-center gap-4">
               <a
-                href="https://x.com/Nisaburou_H"
+                href="https://x.com/ManeTaizou"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 bg-[#4A3424] text-[#FFF6D9] rounded-lg hover:scale-105 transition-transform"
