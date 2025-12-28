@@ -5,9 +5,9 @@ import { FaXTwitter, FaInstagram, FaTiktok } from "react-icons/fa6";
 export default function Footer() {
   return (
     <footer className="bg-[#F7CD63] text-[#4A3424] border-t-4 border-black">
-      <div className="container mx-auto px-4 text-center">
+      <div className="container mx-auto px-4 py-0 text-center">
         {/* ロゴ */}
-        <div className="my-0.5 flex justify-center">
+        <div className="flex justify-center">
           <Link href="/">
             <Image
               src="/logo.png"
