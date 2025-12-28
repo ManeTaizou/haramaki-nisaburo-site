@@ -19,10 +19,10 @@ interface Comment {
 
 export default function FourKomaVol1Page() {
   const comicPages = [
-    { src: "/4koma/vol1/1コマ目完成.png", alt: "4コマ Vol.1 - 1コマ目" },
-    { src: "/4koma/vol1/2コマ目完成.png", alt: "4コマ Vol.1 - 2コマ目" },
-    { src: "/4koma/vol1/3コマ目完成.png", alt: "4コマ Vol.1 - 3コマ目" },
-    { src: "/4koma/vol1/4コマ目完成.png", alt: "4コマ Vol.1 - 4コマ目" },
+    { src: "/4koma/vol1/1コマ目完成.jpg", alt: "4コマ Vol.1 - 1コマ目" },
+    { src: "/4koma/vol1/2コマ目完成.jpg", alt: "4コマ Vol.1 - 2コマ目" },
+    { src: "/4koma/vol1/3コマ目完成.jpg", alt: "4コマ Vol.1 - 3コマ目" },
+    { src: "/4koma/vol1/4コマ目完成.jpg", alt: "4コマ Vol.1 - 4コマ目" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
