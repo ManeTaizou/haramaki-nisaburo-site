@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function StreetScene() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-[color:var(--color-retro-cream)]">
+    <section className="relative min-h-screen w-full overflow-hidden">
       <div className="relative w-full min-h-screen">
         <div className="relative w-full h-screen">
           <Image
