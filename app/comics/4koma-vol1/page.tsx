@@ -244,7 +244,7 @@ export default function FourKomaVol1Page() {
         </section>
 
         {/* ドットインジケーター */}
-        <div className="relative flex justify-center gap-2 pb-4 md:pb-40">
+        <div className="relative flex justify-center gap-2 pb-16 md:pb-40">
           {comicPages.map((_, index) => (
             <button
               key={index}
