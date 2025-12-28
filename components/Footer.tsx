@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="bg-[#F7CD63] text-[#4A3424] border-t-4 border-black">
       <div className="container mx-auto px-4 text-center">
         {/* ロゴ */}
-        <div className="pt-0.5 flex justify-center">
+        <div className="my-0.5 flex justify-center">
           <Link href="/">
             <Image
               src="/logo.png"
@@ -20,7 +20,7 @@ export default function Footer() {
         </div>
 
         {/* SNSアイコン */}
-        <div className="mt-0.5 mb-4 flex justify-center gap-4">
+        <div className="mb-4 flex justify-center gap-4">
           <a
             href="https://x.com/Nisaburou_H"
             target="_blank"
