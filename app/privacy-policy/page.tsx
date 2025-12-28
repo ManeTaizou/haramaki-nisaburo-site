@@ -3,9 +3,9 @@ import Footer from "@/components/Footer";
 export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-[#F7CD63] flex flex-col">
-      <main className="flex-1 container mx-auto px-4 py-12 md:py-16 max-w-4xl">
+      <main className="flex-1 container mx-auto px-4 pt-20 pb-12 md:pt-24 md:pb-16 max-w-4xl">
         <div className="bg-white rounded-2xl shadow-lg border-4 border-[#4A3424] p-6 md:p-10">
-          <h1 className="text-3xl md:text-4xl font-black text-[#4A3424] mb-8 text-center">
+          <h1 className="text-2xl md:text-4xl font-black text-[#4A3424] mb-8 text-center whitespace-nowrap">
             プライバシーポリシー
           </h1>
 
