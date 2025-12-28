@@ -52,11 +52,11 @@ export default function Footer() {
 
         {/* フッターリンク */}
         <div className="mb-3 flex justify-center gap-4">
-          <Link href="/contact" className="text-[10px] md:text-xs text-[#4A3424] hover:underline font-bold">
+          <Link href="/contact" className="text-xs text-[#4A3424] hover:underline font-bold">
             お問い合わせ
           </Link>
-          <span className="text-[10px] md:text-xs text-[#4A3424]">|</span>
-          <Link href="/privacy-policy" className="text-[10px] md:text-xs text-[#4A3424] hover:underline font-bold">
+          <span className="text-xs text-[#4A3424]">|</span>
+          <Link href="/privacy-policy" className="text-xs text-[#4A3424] hover:underline font-bold">
             プライバシーポリシー
           </Link>
         </div>
