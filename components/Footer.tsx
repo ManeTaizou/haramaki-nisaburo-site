@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="bg-[#F7CD63] text-[#4A3424] border-t-4 border-black">
       <div className="container mx-auto px-4 py-0 text-center">
         {/* ロゴ */}
-        <div className="flex justify-center">
+        <div className="flex justify-center -mb-3">
           <Link href="/">
             <Image
               src="/logo.png"
