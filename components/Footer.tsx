@@ -4,10 +4,10 @@ import { FaXTwitter, FaInstagram, FaTiktok } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F7CD63] text-[#4A3424] py-1 border-t-4 border-black">
-      <div className="container mx-auto px-4 text-center">
+    <footer className="bg-[#F7CD63] text-[#4A3424] py-2 border-t-4 border-black">
+      <div className="container mx-auto px-4 text-center space-y-2">
         {/* ロゴ */}
-        <div className="my-1 flex justify-center">
+        <div className="flex justify-center">
           <Link href="/">
             <Image
               src="/logo.png"
@@ -20,7 +20,7 @@ export default function Footer() {
         </div>
 
         {/* SNSアイコン */}
-        <div className="my-1 flex justify-center gap-4">
+        <div className="flex justify-center gap-4">
           <a
             href="https://x.com/Nisaburou_H"
             target="_blank"
@@ -51,7 +51,7 @@ export default function Footer() {
         </div>
 
         {/* フッターリンク */}
-        <div className="mb-3 flex justify-center gap-4">
+        <div className="flex justify-center gap-4">
           <Link href="/contact" className="text-xs text-[#4A3424] hover:underline font-bold">
             お問い合わせ
           </Link>
